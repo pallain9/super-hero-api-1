@@ -1,0 +1,29 @@
+{
+  "name": "super-hero-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run migrate:dev && npm run server:dev",
+    "migrate:dev": "./node_modules/.bin/env-cmd ./node_modules/.bin/sequelize db:migrate --env development --config ./config/sequelize.js",
+    "migrate:prod": "./node_modules/.bin/sequelize db:migrate --env production --config ./config/sequelize.js",
+    "server:dev": "./node_modules/.bin/env-cmd ./node_modules/.bin/nodemon index.js",
+    "server:prod": "node index.js",
+    "start": "npm run migrate:prod && npm server:prod",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "env-cmd": "^10.0.1",
+    "express": "^4.17.1",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.10.2",
+    "sequelize-cli": "^5.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
